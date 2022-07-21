@@ -1,8 +1,15 @@
 import './App.css';
-import {Auth} from './components'
+import {Auth} from './_components'
+import Button from '@mui/material/Button';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
-const authToken = false;
+const authToken = localStorage.getItem('token');
+const logout = () => {
+  localStorage.removeItem('token');
+    console.log(localStorage.getItem('token'))
+  window.location.reload();
 
+}
 
 const App = () => {
 
@@ -10,7 +17,15 @@ const App = () => {
 
   return (
     <div>
-      <h1>This is a chat app</h1>
+      <Button
+        type="submit"
+        fullWidth
+        sx={{ mt: 3, mb: 2 }}
+        variant="contained"
+      >
+        Home
+      </Button>
+      <LogoutOutlinedIcon onClick={logout} />
     </div>
   );
 }
