@@ -14,7 +14,6 @@ export const userActions = {
 
 
 function login(username, password) {
-  console.log(username, password)
   userService.login(username, password).then(
     user => {
       // history.push('/home');
